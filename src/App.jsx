@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "./app/features/ProductSlice";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.product);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="min-h-screen bg-gray-900 text-white px-10 py-10">
+      <h1 className="text-4xl font-bold mb-6 text-center">Redux Toolkit Store</h1>
+
+      <div className="flex justify-center">
+        <button
+          onClick={() => dispatch(getProducts())}
+          className="bg-indigo-600 hover:bg-indigo-700 transition px-6 py-3 rounded-lg font-semibold shadow-lg"
+        >
+          Load Products
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      {/* Loading State */}
+      {loading && (
+        <p className="text-center mt-5 text-gray-300 text-lg">Loading...</p>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <p className="text-center mt-5 text-red-500 text-lg">{error}</p>
+      )}
+
+      {/* Products Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
+        {products &&
+          products.map((obj) => (
+            <div
+              key={obj.id}
+              className=" rounded-xl overflow-hidden "
+            >
+
+              <img
+                src={obj.thumbnail}
+                alt={obj.title}
+                className="w-full h-48 object-cover"
+              />
+
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-1">{obj.title}</h3>
+                <span>❤️</span>
+
+                <p className="text-yellow-400 font-bold mb-2">${obj.price}</p>
+
+                <p className="text-gray-400 text-sm mb-3">
+                  {obj.description.slice(0, 85)}...
+                </p>
+
+                <button className="w-full bg-indigo-600 hover:bg-indigo-700 transition px-4 py-2 rounded-lg font-medium">
+                  View Details
+                </button>
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
