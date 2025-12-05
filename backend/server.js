@@ -1,6 +1,11 @@
 require('dotenv').config();
 const app = require("./src/app");
+const connectDatabase = require("./src/db/db");
 
-app.listen(4000,function(){
-    console.log('Server Runnig on port 4000')
+
+
+
+connectDatabase();
+app.listen(4000,()=>{
+    console.log('Server Runnig On Port 4000')
 });

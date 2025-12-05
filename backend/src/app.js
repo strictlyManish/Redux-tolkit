@@ -1,9 +1,12 @@
-const express = require('express');
+const express = require("express");
+const app = express();
 const userRoutes = require("./routes/user.route");
 
 
-const app = express();
+//Middlewares
+app.use(express.json());
 
+//routes
 app.use("/api",userRoutes)
 
 
@@ -11,4 +14,5 @@ app.use("/api",userRoutes)
 
 
 
-module.exports = app
+
+module.exports = app;
