@@ -1,8 +1,6 @@
 import { useForm } from 'react-hook-form';
 import GradientText from './../components/GradientText';
-// import axios from '../api/api';
-import axios from "axios"
-
+import axios from '../api/api';
 
 function Register() {
 

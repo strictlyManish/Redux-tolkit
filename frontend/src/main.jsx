@@ -3,10 +3,15 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+import { Provider } from 'react-redux'
+import store from './app/store';
+
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
-        <App />
-        <Toaster position='top-right' />
+        <Provider store={store}>
+            <App />
+            <Toaster position='top-right' />
+        </Provider>
     </BrowserRouter>
 )
