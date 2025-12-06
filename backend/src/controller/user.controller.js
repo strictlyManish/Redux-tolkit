@@ -5,35 +5,40 @@ const jwt = require("jsonwebtoken");
 const RegisterController = async (req, res) => {
     try {
         const { fullname, email, password } = req.body;
-        const Checkuser = await UserModel.findOne({ email });
 
-        if (Checkuser) {
-            return res.status(406).json({
-                message: 'User exist with this email',
-            })
-        };
+        if (!fullname || !email || !password) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
 
-        const hashpass = await bcrypt.hash(password, 10)
+        const existingUser = await UserModel.findOne({ email });
+        if (existingUser) {
+            return res.status(409).json({ message: 'User already exists with this email' });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
         const user = await UserModel.create({
-            fullname, email,
-            password: hashpass
-        })
-        const token = jwt.sign({ id: user._id }, process.env.JWT_KEY)
-        res.cookie('token', token)
+            fullname,
+            email,
+            password: hashedPassword
+        });
+
+        const token = jwt.sign({ id: user._id }, process.env.JWT_KEY, { expiresIn: '1h' });
+
+        res.cookie('token', token, {
+            httpOnly: true,
+           
+        });
+
         return res.status(201).json({
-            message: 'User created sucessfully',
-            userData: {
-                fullname,
-                email
-            }
+            message: 'User created successfully',
+            userData: { fullname, email }
         });
     } catch (error) {
-        console.log(error)
-        return res.status(417).json({
-            message: 'Something is not going good',
-        })
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
     }
 };
+
 
 const LoginController = async (req, res) => {
     try {
@@ -46,7 +51,7 @@ const LoginController = async (req, res) => {
             })
         };
 
-        const passCheck = bcrypt.compare(password,user.password)
+        const passCheck = bcrypt.compare(password, user.password)
 
         if (!passCheck) {
             return res.status(409).json({
@@ -54,7 +59,7 @@ const LoginController = async (req, res) => {
             })
         };
 
-        const token = jwt.sign({id: user._id}, process.env.JWT_KEY);
+        const token = jwt.sign({ id: user._id }, process.env.JWT_KEY);
         res.cookie("token", token);
 
         return res.status(200).json({
@@ -64,7 +69,8 @@ const LoginController = async (req, res) => {
                 email
             }
         })
-    } catch (error) {``
+    } catch (error) {
+        ``
         console.log(error)
         return res.status(417).json({
             message: 'Something is not going good',

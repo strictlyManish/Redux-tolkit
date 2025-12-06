@@ -40,7 +40,7 @@ export default function GradientText({
           ...gradientStyle,
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
-          backgroundSize: '300% 100%'
+          backgroundSize: '300% 100%',
         }}
       >
         {children}

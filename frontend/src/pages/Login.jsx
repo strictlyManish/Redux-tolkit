@@ -4,16 +4,14 @@ function Login() {
   return (
     <div className="flex flex-col lg:flex-row h-screen items-center justify-center">
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-around items-center px-4 py-8 lg:py-0">
-        <p className="text-4xl sm:text-6xl lg:text-8xl font-medium font-[Science Gothic] text-center lg:text-left">
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
             animationSpeed={3}
             showBorder={false}
-            className="custom-class"
+            className="text-8xl"
           >
             Welcome <br /> Back!
           </GradientText>
-        </p>
       </div>
       <div className="w-full sm:w-3/4 lg:w-2/4 flex flex-col gap-4 p-6 sm:p-8 lg:p-25">
         <form>
