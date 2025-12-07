@@ -1,15 +1,12 @@
 const UserModel = require("../model/user.model");
 
-const GetCurrentUser = async (req,res)=>{
+const GetCurrentUser = async (req, res) => {
 
-    const user = req.user;
+    const current = req.user;
+    const user = await UserModel.findOne({ _id: current.id })
 
-
-
-    const getuser = await UserModel.findOne({_id:user.id})
-
-    res.json({
-        getuser
+    return res.json({
+        user
     })
 };
 

@@ -1,21 +1,19 @@
 import GradientText from './../components/GradientText';
 import { useForm } from 'react-hook-form';
-import axios from "../api/api";
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../app/features/authSlice';
+
 
 function Login() {
 
   const {register,handleSubmit,reset,formState:{errors} } = useForm()
 
+  const dispatch = useDispatch();
+
   const handellogin = async (data) =>{
-    console.log(data)
-
-    const response = await axios.post("/login",{
-      email:data.email,
-      password:data.password
-    });
-
-    console.log(response)
-  }
+    const {email,password} = data;
+      dispatch(loginUser({email,password}))
+  } 
 
   return (
     <div className="flex flex-col lg:flex-row h-screen items-center justify-center">
