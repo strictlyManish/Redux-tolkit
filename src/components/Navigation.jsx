@@ -18,7 +18,7 @@ function Navigation() {
   ]
 
   return (
-    <nav className="bg-gray-800 rounded-2xl p-4 mx-4 shadow-md">
+    <nav className="bg-gray-900 rounded-2xl p-4 mx-4 shadow-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="logo">
