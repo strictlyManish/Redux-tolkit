@@ -14,15 +14,14 @@ function Navigation() {
     { label: "Resume", path: "/resume" },
     { label: "Contact", path: "/contact" },
     { label: "Project", path: "/project" },
-    { label: "Learnings", path: "/learnings" }
   ]
 
   return (
-    <nav className="bg-gray-900 rounded-2xl p-4 mx-4 shadow-md">
+    <nav className="bg-gray-600 rounded p-4 mx-4 shadow-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="logo">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-['Sekuya'] ">
             RAJZ MANISH
           </h1>
         </div>
