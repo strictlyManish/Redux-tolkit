@@ -5,3 +5,8 @@
     font-weight: 400;
       font-family: "Dancing Script", cursive;
 }
+
+html,body{
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
