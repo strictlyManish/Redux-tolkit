@@ -17,16 +17,15 @@ function Navigation() {
   ]
 
   return (
-    <nav className="bg-gray-700 backdrop-blur-3xl rounded-xl p-4 mx-4 shadow-2xl font-mono">
+    <nav className="bg-gray-800 backdrop-blur-3xl rounded-xl p-4 mx-4 shadow-2xl font-mono sticky top-0  z-50">
       <div className="flex justify-between items-center">
-        {/* Logo */}
+        
         <div className="logo">
-          <h1 className="text-xl sm:text-xl md:text-2xl font-bolder text-yellow-400 font-['Sekuya'] ">
+          <h1 className="text-xl sm:text-xl md:text-2xl font-bolder text-yellow-400 font-serif">
             RAJZ MANISH
           </h1>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex links gap-5 lg:gap-8">
           {navLinks.map((link) => (
             <NavLink
@@ -45,7 +44,6 @@ function Navigation() {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
           className="md:hidden text-white p-2"
@@ -55,7 +53,6 @@ function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden mt-4 flex flex-col gap-3 pb-2">
           {navLinks.map((link) => (
