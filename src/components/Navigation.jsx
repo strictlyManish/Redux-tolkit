@@ -11,17 +11,17 @@ function Navigation() {
 
   const navLinks = [
     { label: "Home", path: "/" },
-    { label: "Resume", path: "/resume" },
+    { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
     { label: "Project", path: "/project" },
   ]
 
   return (
-    <nav className="bg-gray-600 backdrop-blur-3xl rounded p-4 mx-4 shadow-md">
+    <nav className="bg-gray-700 backdrop-blur-3xl rounded-xl p-4 mx-4 shadow-2xl font-mono">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="logo">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-['Sekuya'] ">
+          <h1 className="text-xl sm:text-xl md:text-2xl font-bolder text-yellow-400 font-['Sekuya'] ">
             RAJZ MANISH
           </h1>
         </div>
