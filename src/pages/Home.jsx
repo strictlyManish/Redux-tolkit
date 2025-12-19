@@ -4,6 +4,9 @@ import { LogoLoop } from './../components/LogoLoop'
 import { motion } from 'framer-motion'
 import { BiSolidFileCss } from 'react-icons/bi'
 import { SiVite, SiRedux, SiBootstrap, SiSass, SiGithub, SiGit } from "react-icons/si";
+import About from './About';    
+import { useNavigate } from 'react-router-dom';
+import Project from './Project';
 
 function Home() {
 
@@ -22,6 +25,8 @@ function Home() {
     { node: <FaNodeJs />, title: "Node.js", href: "https://nodejs.org" },
     { node: <FaPython />, title: "Python", href: "https://python.org" },
   ]
+
+  const navigate = useNavigate();
 
   return (
     <section className="px-5 md:px-20 py-20 bg-[#0b0d10] text-gray-300">
@@ -52,16 +57,10 @@ function Home() {
           <div className="flex gap-5 mt-6">
             <motion.button
               whileHover={{ scale: 1.08 }}
-              className="px-8 py-3 bg-yellow-700 text-black rounded-3xl font-medium"
+              onClick={()=>navigate("/contact")}
+              className="px-8 py-3 bg-yellow-500 text-black rounded font-medium"
             >
               Hire Me
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              className="px-8 py-3 border border-yellow-600 text-yellow-500 rounded-3xl font-medium"
-            >
-              Resume
             </motion.button>
           </div>
 
@@ -96,7 +95,8 @@ function Home() {
           fadeOutColor="#0b0d10"
         />
       </div>
-
+        <About/>
+        <Project/>
     </section>
   )
 }

@@ -1,8 +1,15 @@
-import React from 'react'
+import { useContext } from "react"
+import { Projectbox } from "../context/ProjectContainer"
 
 function Project() {
+
+
+  const [data,setData] = useContext(Projectbox)
+
   return (
-    <div>Project</div>
+    <div className="">
+      
+    </div>
   )
 }
 
