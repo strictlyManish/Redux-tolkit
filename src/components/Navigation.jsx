@@ -1,42 +1,39 @@
-import { useState } from "react"
-import { NavLink } from "react-router-dom"
-import { Menu, X } from "lucide-react"
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
-    { label: "Contact", path: "/contact" },
     { label: "Project", path: "/project" },
-    { label: "Edit", path: "/edit" },
-  ]
+    { label: "Contact", path: "/contact" },
+  ];
 
   return (
-    <nav className="bg-gray-800 backdrop-blur-3xl rounded-xl p-4 mx-4 shadow-2xl  font-mono sticky top-0  z-50">
-      <div className="flex justify-between items-center">
+    <nav className="backdrop-blur-xl bg-[#0f1114]/70 border border-white/10 rounded-2xl mx-4 md:mx-8 px-6 py-4 shadow-lg sticky top-3 z-50">
+      <div className="flex items-center justify-between">
         
-        <div className="logo">
-          <h1 className="text-xl sm:text-xl md:text-2xl font-bolder text-yellow-400 font-serif">
-            RAJZ MANISH
-          </h1>
-        </div>
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-yellow-400 tracking-wide">
+          MANISH<span className="text-gray-300">.</span>
+        </h1>
 
-        <div className="hidden md:flex links gap-5 lg:gap-8">
+        {/* Desktop Links */}
+        <div className="hidden md:flex gap-8">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `text-sm lg:text-base font-medium transition-colors ${
+                `text-base transition-all duration-300 ${
                   isActive
-                    ? "text-yellow-300 border-b-2 border-yellow-300"
-                    : "text-white hover:text-gray-200"
+                    ? "text-yellow-400 border-b border-yellow-400"
+                    : "text-gray-300 hover:text-white"
                 }`
               }
             >
@@ -45,27 +42,29 @@ function Navigation() {
           ))}
         </div>
 
+        {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden text-white p-2"
-          aria-label="Toggle menu"
+          className="md:hidden text-yellow-300 p-2"
+          aria-label="Toggle navigation menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden mt-4 flex flex-col gap-3 pb-2">
+        <div className="md:hidden mt-4 flex flex-col gap-3 rounded-xl p-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `text-sm py-2 px-2 rounded transition-colors ${
+                `py-2 px-3 rounded-lg transition-all duration-300 ${
                   isActive
-                    ? "text-yellow-300 bg-gray-600"
-                    : "text-white hover:text-gray-200 hover:bg-gray-700"
+                    ? "text-yellow-400 bg-[#1a1d21]"
+                    : "text-gray-300 hover:bg-[#1b1e23] hover:text-white"
                 }`
               }
             >
@@ -75,7 +74,7 @@ function Navigation() {
         </div>
       )}
     </nav>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

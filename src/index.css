@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&display=swap');
 
 *{
     font-weight: 400;
+      font-family: "Geom", sans-serif;
 }
 
 html,body{
@@ -11,21 +13,5 @@ html,body{
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #1f1f1f;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  width: 0px;
 }
