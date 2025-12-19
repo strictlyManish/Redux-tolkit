@@ -14,10 +14,11 @@ function Navigation() {
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
     { label: "Project", path: "/project" },
+    { label: "Edit", path: "/edit" },
   ]
 
   return (
-    <nav className="bg-gray-800 backdrop-blur-3xl rounded-xl p-4 mx-4 shadow-2xl font-mono sticky top-0  z-50">
+    <nav className="bg-gray-800 backdrop-blur-3xl rounded-xl p-4 mx-4 shadow-2xl  font-mono sticky top-0  z-50">
       <div className="flex justify-between items-center">
         
         <div className="logo">
