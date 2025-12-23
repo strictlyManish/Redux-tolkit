@@ -6,12 +6,13 @@ function Project() {
   const [data, setData] = useContext(Projectbox)
 
   return (
-    <div className="min-h-screen px-3 sm:px-4 md:px-6 lg:px-8 py-6 md:py-10">
+    <div className="min-h-screen mt-10 px-3 sm:px-4 md:px-6 lg:px-8 py-6 md:py-10">
       <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6 md:mb-10">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
             My Projects
+            <span className="block h-1 w-24 bg-yellow-500 mt-2"></span>
           </h1>
           <p className="text-gray-400 text-sm sm:text-base">
             Explore my recent work and projects

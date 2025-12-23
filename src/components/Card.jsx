@@ -3,7 +3,7 @@ function Card({ data }) {
   const { title, description, image, tags } = data;
 
   return (
-     <div className="bg-[#0b1220] rounded-2xl md:rounded-3xl overflow-hidden border border-gray-800 shadow-lg hover:shadow-2xl transition duration-300 h-full flex flex-col">
+     <div className="bg-[#0b1220] rounded-2xl md:rounded-3xl overflow-hidden border border-gray-800 shadow-lg  transition duration-300 h-full flex flex-col">
       
       {/* Image */}
       <div className="h-40 sm:h-44 md:h-48 w-full overflow-hidden flex-shrink-0">
