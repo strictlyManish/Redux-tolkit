@@ -1,19 +1,9 @@
 
 function Card({ data }) {
-  const { title, description, image, tags } = data;
+  const { title, description, tags } = data;
 
   return (
      <div className="bg-[#0b1220] rounded-2xl md:rounded-3xl overflow-hidden border border-gray-800 shadow-lg  transition duration-300 h-full flex flex-col">
-      
-      {/* Image */}
-      <div className="h-40 sm:h-44 md:h-48 w-full overflow-hidden flex-shrink-0">
-        <img
-          src={image}
-          alt={title}
-          className="h-full w-full object-cover hover:scale-105 transition duration-300"
-        />
-      </div>
-
       {/* Content */}
       <div className="p-3 sm:p-4 md:p-5 flex flex-col gap-3 flex-grow">
         <h2 className="text-white text-base sm:text-lg md:text-xl font-semibold leading-snug line-clamp-2">

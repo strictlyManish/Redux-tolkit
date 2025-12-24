@@ -11,7 +11,7 @@ function Footer() {
         <div className='w-full max-w-7xl mx-auto'>
           {/* Grid Content */}
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12'>
-            
+
             {/* Brand Section */}
             <div className='col-span-1'>
               <h3 className='text-white text-lg md:text-xl font-bold mb-3'>
@@ -37,48 +37,54 @@ function Footer() {
                 ))}
               </ul>
             </div>
-
-            {/* Services */}
-            <div className='col-span-1'>
-              <h4 className='text-white text-base md:text-lg font-semibold mb-3'>
-                Services
-              </h4>
-              <ul className='space-y-2'>
-                {['Web Design', 'Development', 'Consulting', 'UI/UX'].map((service, index) => (
-                  <li key={index}>
-                    <a href='#' className='text-gray-400 text-xs sm:text-sm hover:text-white transition duration-300'>
-                      {service}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Social Links */}
             <div className='col-span-1'>
               <h4 className='text-white text-base md:text-lg font-semibold mb-3'>
                 Follow Me
               </h4>
-              <div className='flex gap-3'>
+              <div className="flex gap-3">
                 {[
-                  { icon: Github, label: 'Github', color: 'hover:text-gray-300' },
-                  { icon: Linkedin, label: 'LinkedIn', color: 'hover:text-blue-400' },
-                  { icon: Twitter, label: 'Twitter', color: 'hover:text-blue-300' },
-                  { icon: Mail, label: 'Email', color: 'hover:text-red-400' }
+                  {
+                    icon: Github,
+                    label: "Github",
+                    color: "hover:text-gray-300",
+                    url: "https://github.com/strictlyManish",
+                  },
+                  {
+                    icon: Linkedin,
+                    label: "LinkedIn",
+                    color: "hover:text-blue-400",
+                    url: "https://www.linkedin.com/in/rajz-manish-900453382/",
+                  },
+                  {
+                    icon: Twitter,
+                    label: "Twitter",
+                    color: "hover:text-blue-300",
+                    url: "https://x.com/XManish_",
+                  },
+                  {
+                    icon: Mail,
+                    label: "Email",
+                    color: "hover:text-red-400",
+                    url: "mailto:manishraz800@gmail.com",
+                  },
                 ].map((social, index) => {
                   const Icon = social.icon
                   return (
                     <a
                       key={index}
-                      href='#'
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`text-gray-400 ${social.color} transition duration-300 p-2`}
                       aria-label={social.label}
                     >
-                      <Icon size={20} className='sm:w-5 sm:h-5 md:w-6 md:h-6' />
+                      <Icon size={20} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </a>
                   )
                 })}
               </div>
+
             </div>
           </div>
 
@@ -89,18 +95,7 @@ function Footer() {
               <p className='text-gray-500 text-xs sm:text-sm text-center sm:text-left'>
                 &copy; {currentYear} All rights reserved. Built with React & Tailwind CSS.
               </p>
-              
-              <div className='flex gap-4 sm:gap-6'>
-                {['Privacy Policy', 'Terms of Service'].map((item, index) => (
-                  <a
-                    key={index}
-                    href='#'
-                    className='text-gray-500 hover:text-gray-300 text-xs sm:text-sm transition duration-300'
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
+
             </div>
           </div>
         </div>
